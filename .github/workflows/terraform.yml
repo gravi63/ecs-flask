@@ -15,6 +15,7 @@ jobs:
   terraform:
     name: "Terraform Infrastructure Change Management"
     runs-on: ubuntu-latest
+    environment: dev
     defaults:
       run:
         shell: bash
