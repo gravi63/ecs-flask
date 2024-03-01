@@ -13,3 +13,7 @@
 - terraform init
 - terraform plan
 - terraform apply
+
+## Github Actions Pipeline
+
+- Once the code is pushed to Main branch, Code will be deployed.
