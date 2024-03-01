@@ -6,7 +6,7 @@
 - Create ecsInstanceRole for ECS to access Other resources
 - create AWS ECR repo to store Images
 
-### Terraform steps
+## Terraform steps
 
 - cd ./code
 - export AWS creadentials
