@@ -10,12 +10,6 @@ on:
   #     - main
   #   paths:
   #     - code/**
-env:
-  # verbosity setting for Terraform logs
-  TF_LOG: INFO
-  # Credentials for deployment to AWS
-  AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 jobs:
   terraform:
@@ -31,6 +25,12 @@ jobs:
         uses: actions/checkout@v3.0.0
         with:
           fetch-depth: 0
+      - name: Set up AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
       - name: Setup Terraform with specified version on the runner
         uses: hashicorp/setup-terraform@v1
         with:
