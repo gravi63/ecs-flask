@@ -1,0 +1,40 @@
+# module "autoscaling" {
+#   source = "../modules/autoscaling"
+#   subnets = [module.vpc.subnet1_id, module.vpc.subnet2_id]
+#   security_groups = [module.vpc.security_groups]
+#   ec2_key_name   = var.ec2_key_name
+#   iam_instance_profile = var.iam_instance_profile
+#   image_id = var.image_id
+# }
+
+# module "load_balancer" {
+#   source = "../modules/load_balancer"
+#   subnets = [module.vpc.subnet1_id, module.vpc.subnet2_id]
+#   security_groups = [module.vpc.security_groups]
+#   listner_port = var.listner_port
+#   tg_port = var.tg_port
+#   vpc_id = module.vpc.vpc_id
+# }
+
+# desired_count = 2
+  # network_configuration {
+  #   subnets = [module.vpc.subnet1_id, module.vpc.subnet2_id]
+  #   security_groups = [module.vpc.security_groups]
+  # }
+  # force_new_deployment = true
+  # placement_constraints {
+  #   type = "distinctInstance"
+  # }
+  # triggers = {
+  #   redeployment = timestamp()
+  # }
+  # capacity_provider_strategy {
+  #   capacity_provider = module.ecs.ecs_capacity_provider_name
+  #   weight = 100
+  # }
+  # load_balancer {
+  #   target_group_arn = module.load_balancer.ecs_tg_arn
+  #   container_name = "dockergs"
+  #   container_port = 80
+  # }
+  # depends_on = [module.autoscaling]
