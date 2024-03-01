@@ -17,3 +17,7 @@
 ## Github Actions Pipeline
 
 - Once the code is pushed to Main branch, Code will be deployed.
+
+## Info
+
+- Add Load balancer and Implement SSL for https url
